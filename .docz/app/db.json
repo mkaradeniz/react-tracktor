@@ -1,0 +1,252 @@
+{
+  "config": {
+    "title": "react-tracktor 🚜",
+    "description": "A React render prop to gradually build tracking data down the render tree.",
+    "menu": [],
+    "version": "1.0.2",
+    "repository": "https://github.com/mkaradeniz/react-tracktor",
+    "native": false,
+    "codeSandbox": false,
+    "themeConfig": {},
+    "separator": "-",
+    "ignore": [
+      "changelog.md",
+      "code_of_conduct.md",
+      "contributing.md",
+      "license.md",
+      "readme.md",
+      "todo.md"
+    ],
+    "typescript": true
+  },
+  "props": [
+    {
+      "key": "src/IntersectionComponent.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ForwardRefExoticComponent",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/PageView.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "PageView",
+          "methods": [],
+          "props": {
+            "pageViewData": {
+              "defaultValue": null,
+              "description": "",
+              "name": "pageViewData",
+              "required": true,
+              "type": {
+                "name": "object"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Tracktor.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Tracktor",
+          "methods": [],
+          "props": {
+            "eventData": {
+              "defaultValue": null,
+              "description": "",
+              "name": "eventData",
+              "required": false,
+              "type": {
+                "name": "object | undefined"
+              }
+            },
+            "intersectionOptions": {
+              "defaultValue": null,
+              "description": "",
+              "name": "intersectionOptions",
+              "required": false,
+              "type": {
+                "name": "IntersectionOptions | undefined"
+              }
+            },
+            "render": {
+              "defaultValue": null,
+              "description": "",
+              "name": "render",
+              "required": true,
+              "type": {
+                "name": "(value: TracktorRenderProp) => ReactNode"
+              }
+            },
+            "trackingData": {
+              "defaultValue": null,
+              "description": "",
+              "name": "trackingData",
+              "required": false,
+              "type": {
+                "name": "object | undefined"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "key": "docs/TracktorProvider.mdx",
+      "value": {
+        "name": "<TracktorProvider />",
+        "id": "47f8aae2c3aa6a63cde34d0a3a71f57f",
+        "filepath": "docs/TracktorProvider.mdx",
+        "link": "https://github.com/mkaradeniz/react-tracktor/edit/master/docs/TracktorProvider.mdx",
+        "slug": "docs-tracktor-provider",
+        "route": "/docs-tracktor-provider",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "tracktorprovider-",
+            "depth": 1,
+            "value": "<TracktorProvider />"
+          },
+          {
+            "slug": "props",
+            "depth": 2,
+            "value": "Props"
+          },
+          {
+            "slug": "usage",
+            "depth": 2,
+            "value": "Usage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "docs/PageView.mdx",
+      "value": {
+        "name": "<PageView />",
+        "id": "7bcf16d5707f2ea65cb87710594c0b13",
+        "filepath": "docs/PageView.mdx",
+        "link": "https://github.com/mkaradeniz/react-tracktor/edit/master/docs/PageView.mdx",
+        "slug": "docs-page-view",
+        "route": "/docs-page-view",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "pageview-",
+            "depth": 1,
+            "value": "<PageView />"
+          },
+          {
+            "slug": "props",
+            "depth": 2,
+            "value": "Props"
+          },
+          {
+            "slug": "usage",
+            "depth": 2,
+            "value": "Usage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "docs/index.mdx",
+      "value": {
+        "name": "react-tracktor",
+        "route": "/",
+        "id": "73498ad0e1e62a714b08085d318f9de1",
+        "filepath": "docs/index.mdx",
+        "link": "https://github.com/mkaradeniz/react-tracktor/edit/master/docs/index.mdx",
+        "slug": "docs-index",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "react-tracktor-",
+            "depth": 1,
+            "value": "react-tracktor 🚜"
+          },
+          {
+            "slug": "caveats",
+            "depth": 2,
+            "value": "Caveats"
+          },
+          {
+            "slug": "installation",
+            "depth": 2,
+            "value": "Installation"
+          }
+        ]
+      }
+    },
+    {
+      "key": "docs/Tracktor.mdx",
+      "value": {
+        "name": "<Tracktor />",
+        "id": "b75b39fb78b035e52f071b377e076b16",
+        "filepath": "docs/Tracktor.mdx",
+        "link": "https://github.com/mkaradeniz/react-tracktor/edit/master/docs/Tracktor.mdx",
+        "slug": "docs-tracktor",
+        "route": "/docs-tracktor",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "tracktor-",
+            "depth": 1,
+            "value": "<Tracktor />"
+          },
+          {
+            "slug": "props",
+            "depth": 2,
+            "value": "Props"
+          },
+          {
+            "slug": "tracktor--props",
+            "depth": 3,
+            "value": "<Tracktor />  Props"
+          },
+          {
+            "slug": "render-props",
+            "depth": 3,
+            "value": "render  Props"
+          },
+          {
+            "slug": "usage",
+            "depth": 2,
+            "value": "Usage"
+          },
+          {
+            "slug": "trackevent",
+            "depth": 3,
+            "value": "trackEvent"
+          },
+          {
+            "slug": "onclickwrapper",
+            "depth": 3,
+            "value": "onClickWrapper"
+          },
+          {
+            "slug": "intersectionref",
+            "depth": 3,
+            "value": "intersectionRef"
+          },
+          {
+            "slug": "intersectionwrapper",
+            "depth": 3,
+            "value": "intersectionWrapper"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+---
+name: <Tracktor />
+---
+
+import { Playground } from 'docz';
+
+import Tracktor from '../src/Tracktor';
+import TracktorProvider from '../src/TracktorProvider';
+
+# `<Tracktor />`
+
+This is the main render-prop that can be used to gradually build the tracking data.
+It needs to be wrapped in **one** top-level `<TracktorProvider />` per render-tree which defines a `dispatcher` function that recieves the `trackingData` and does something with it. See the `<TracktorProvider />` section for details.
+
+## Props
+
+### `<Tracktor />` Props
+
+| Name                  | Type                                       | Default                 | Description                                                                                                                                                                                                 |
+| --------------------- | ------------------------------------------ | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `eventData`           | _object_                                   | `{}`                    | An object with tracking data that should be provided to the `dispatcher` when the `onClickWrapper` is fired or (when using the `intersectionRef` or `intersectionWrapper`) the component scrolls into view. |
+| `intersectionOptions` | _object_                                   | `{ triggerOnce: true }` | Options passed to the IntersectionObserver. <br/>See: https://github.com/thebuilder/react-intersection-observer#options                                                                                     |
+| `render`              | `(value: TracktorRenderProp) => ReactNode` | _required_              | The render function                                                                                                                                                                                         |
+| `trackingData`        | _object_                                   | `{}`                    | An object with data that should be used when tracking events from this component and all components further down the render tree.                                                                           |
+
+### `render` Props
+
+| Name                  | Type                                          | Description                                                                                                                                  |
+| --------------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `intersectionRef`     | _ReactRef_                                    | If used as a ref for a DOM element, a `trackEvent` will be fired with the the provided `eventData` when the refed element scrolls into view. |
+| `intersectionWrapper` | `(WrappedComponent: ReactNode) => ReactNode)` | Can be used to wrap a component to inject an invisibile `<div />` which will have the `intersectionRef` and track on intersection.           |
+| `onClickWrapper`      | `(trackEventData: object) => () => void`      | Can be used to wrap a component's `onClick` prop, the returning function, also fires an `trackEvent`.                                        |
+| `trackEvent`          | `(trackEventData: object) => void`            | Function which fires an `trackEvent` with the provided data, merged with all previously provided `trackingData`.                             |
+
+## Usage
+
+_Open the console to see tracking events_ & _Click the `<>` to see the code._
+
+### `trackEvent`
+
+Normally these would be spread out throughout different pages and components.
+
+<Playground>
+  <TracktorProvider dispatcher={trackingData => console.log(trackingData)}>
+    <Tracktor
+      trackingData={{ page: 'Tracktor.mdx' }}
+      render={() => (
+        <main>
+          <h2>Tracktor.mdx</h2>
+
+          <Tracktor trackingData={{ section: 'basic_usage' }}
+            render={({ trackEvent }) => (
+              <section>
+                <h3><code>trackEvent</code></h3>
+
+                <button onClick={() => trackEvent({ button: 'hello' })}>Hello</button>
+
+                <button onClick={() => trackEvent({ button: 'goodbye' })}>Goodbye</button>
+              </section>
+            )}
+          />
+        </main>
+      )}
+    />
+
+  </TracktorProvider>
+</Playground>
+
+### `onClickWrapper`
+
+`render` provides a `onClickWrapper` to wrap existing `onClick` functions to also trigger an tracking event with the provided `eventData`.
+
+<Playground>
+
+  <TracktorProvider dispatcher={trackingData => console.log(trackingData)}>
+    <Tracktor
+      trackingData={{ page: 'Tracktor.mdx' }}
+      render={() => (
+        <main>
+          <h2>Tracktor.mdx</h2>
+
+          <Tracktor
+            trackingData={{ section: 'on-click_wrapper' }}
+            eventData={{ button: 'click_me' }}
+            render={({ onClickWrapper }) => {
+              const existingOnClickFunction = () => console.log('This is a `console.log` from an existing `onClick` function.')
+
+              return (
+                <section>
+                  <h3><code>onClickWrapper</code></h3>
+
+                  <button onClick={onClickWrapper(existingOnClickFunction)}>Click Me</button>
+                </section>
+              )
+            }}
+          />
+        </main>
+      )}
+    />
+
+  </TracktorProvider>
+</Playground>
+
+### `intersectionRef`
+
+`render` provides a `ref={intersectionRef}` that can be put on to DOM elements to trigger an tracking event with the provided `eventData`. Like with `trackEvent`, the data from all `<Tracktor />` components above in the render tree will be merged with the `eventData` when the tracking event fires.
+
+<Playground>
+  <TracktorProvider dispatcher={trackingData => console.log(trackingData)}>
+    <Tracktor
+      trackingData={{ page: 'Tracktor.mdx' }}
+      render={() => (
+        <main>
+          <h2>Tracktor.mdx</h2>
+
+          <Tracktor
+            trackingData={{ section: 'intersection_ref' }}
+            eventData={{ intersected: true}}
+            render={({ intersectionRef }) => (
+              <section>
+                <h3><code>intersectionRef</code></h3>
+
+                <p ref={intersectionRef}>When this scrolled into view, we fired a tracking event with the data defined in `eventData`.</p>
+              </section>
+            )}
+          />
+        </main>
+      )}
+    />
+
+  </TracktorProvider>
+</Playground>
+
+### `intersectionWrapper`
+
+`render` provides a `intersectionWrapper` that can be wrapped around JSX that injects an invisible `<div />` with the `intersectionRef` as it's reference.
+
+<Playground>
+  <TracktorProvider dispatcher={trackingData => console.log(trackingData)}>
+    <Tracktor
+      trackingData={{ page: 'Tracktor.mdx' }}
+      render={() => (
+        <main>
+          <h2>Tracktor.mdx</h2>
+
+          <Tracktor
+            trackingData={{ section: 'intersection_wrapper' }}
+            eventData={{ intersected: true}}
+            render={({ intersectionWrapper }) => intersectionWrapper(
+              <section>
+                <h3><code>intersectionWrapper</code></h3>
+
+                <p>When this scrolled into view, we fired a tracking event with the data defined in `eventData`.</p>
+              </section>
+            )}
+          />
+        </main>
+      )}
+    />
+
+  </TracktorProvider>
+</Playground>

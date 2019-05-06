@@ -1,0 +1,25 @@
+---
+name: react-tracktor
+route: /
+---
+
+# react-tracktor 🚜
+
+`<Tracktor />` is a React render prop, inspired by [react-tracking](https://github.com/nytimes/react-tracking), to gradually build tracking data down the render tree. At each level, all data is available from "above" while also passing it "down". It provides several ways to trigger tracking events.
+
+## Caveats
+
+- This library only works with React versions that support [hooks](https://reactjs.org/hooks). That means `16.8.0` and up.
+- This library uses the [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) Browser API under the hood. This feature might not work without a polyfill for older browsers.
+
+## Installation
+
+```bash
+yarn add react-tracktor
+```
+
+or
+
+```bash
+npm install react-tracktor
+```

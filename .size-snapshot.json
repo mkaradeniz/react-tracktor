@@ -1,0 +1,36 @@
+{
+  "/Users/mmk/Desktop/private/tracktor/dist/react-tracktor.cjs.development.js": {
+    "bundled": 6730,
+    "minified": 2814,
+    "gzipped": 1129
+  },
+  "/Users/mmk/Desktop/private/tracktor/dist/react-tracktor.cjs.production.js": {
+    "bundled": 6652,
+    "minified": 2442,
+    "gzipped": 985
+  },
+  "/Users/mmk/Desktop/private/tracktor/dist/react-tracktor.umd.development.js": {
+    "bundled": 7406,
+    "minified": 2482,
+    "gzipped": 1134
+  },
+  "/Users/mmk/Desktop/private/tracktor/dist/react-tracktor.umd.production.js": {
+    "bundled": 7322,
+    "minified": 2110,
+    "gzipped": 989
+  },
+  "/Users/mmk/Desktop/private/tracktor/dist/react-tracktor.es.production.js": {
+    "bundled": 6386,
+    "minified": 2220,
+    "gzipped": 912,
+    "treeshaked": {
+      "rollup": {
+        "code": 374,
+        "import_statements": 75
+      },
+      "webpack": {
+        "code": 1442
+      }
+    }
+  }
+}

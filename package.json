@@ -1,0 +1,67 @@
+{
+  "name": "react-tracktor",
+  "version": "1.0.2",
+  "author": "Max Karadeniz <max@karadeniz.io> (http://karadeniz.io/)",
+  "description": "A React render prop to gradually build tracking data down the render tree.",
+  "keywords": [
+    "react",
+    "tracking",
+    "typescript"
+  ],
+  "homepage": "https://github.com/mkaradeniz/react-tracktor#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mkaradeniz/react-tracktor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mkaradeniz/react-tracktor/issues"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "umd:main": "dist/react-tracktor.umd.production.js",
+  "module": "dist/react-tracktor.es.production.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn build:clean && yarn build:dist",
+    "build:clean": "rimraf dist",
+    "build:dist": "tsdx build",
+    "docs:build": "docz build",
+    "docs:dev": "docz dev",
+    "format": "prettier \"./src/**/*.{ts,tsx}\" \"./docs/**/*.{mdx}\" --config ./prettier.config.js --write",
+    "start": "tsdx watch",
+    "test": "tsdx test --env=jsdom",
+    "test:watch": "tsdx test --env=jsdom --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "dependencies": {
+    "deepmerge": "3.2.0",
+    "react-intersection-observer": "8.23.0"
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.12",
+    "@types/react": "16.8.16",
+    "@types/react-dom": "16.8.4",
+    "docz": "1.1.0",
+    "docz-theme-default": "1.1.0",
+    "husky": "2.2.0",
+    "prettier": "1.17.0",
+    "pretty-quick": "1.10.0",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-testing-library": "^7.0.0",
+    "rimraf": "^2.6.3",
+    "tsdx": "0.5.6",
+    "typescript": "3.4.5"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  }
+}

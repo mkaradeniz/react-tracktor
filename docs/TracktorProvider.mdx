@@ -1,0 +1,31 @@
+---
+name: <TracktorProvider />
+---
+
+import { Playground } from 'docz';
+
+import Tracktor from '../src/Tracktor';
+import TracktorProvider from '../src/TracktorProvider';
+
+# `<TracktorProvider />`
+
+`<TracktorProvider />` is required for `<Tracktor />` to work. Every render-tree requires **one** `<TracktorProvider />`. This is also where the `dispatcher`, the callback that is called whenever a tracking event occurs, is defined.
+
+## Props
+
+| Name         | Type                             | Default                                       | Description                                                                                                                                                 |
+| ------------ | -------------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dispatcher` | `(trackingData: object) => void` | `(trackingData) => console.log(trackingData)` | The `dispatcher` is a callback that is called on every tracking event and is responsible to process and forward the data for and to any analytics solution. |
+
+## Usage
+
+_Click the `<>` to see the code._
+
+<Playground>
+  <TracktorProvider dispatcher={trackingData => console.log(trackingData)}>
+    <Tracktor
+      render={() => <main><h2>TracktorProvider.mdx</h2></main>}
+    />
+
+  </TracktorProvider>
+</Playground>

@@ -1,0 +1,38 @@
+---
+name: <PageView />
+---
+
+import { Playground } from 'docz';
+
+import PageView from '../src/PageView';
+import TracktorProvider from '../src/TracktorProvider';
+
+# `<PageView />`
+
+`<PageView />` is used to fire an tracking event when the page loads. It needs to be wrapped in **one** top-level `<TracktorProvider />` per render-tree which defines a `dispatcher` function that recieves the provided `pageViewData` and does something with it.
+See the `<TracktorProvider />` section for details.
+
+## Props
+
+| Name           | Type     | Default    | Description                                                                   |
+| -------------- | -------- | ---------- | ----------------------------------------------------------------------------- |
+| `pageViewData` | _object_ | _required_ | An object with data that the `dispatcher` should be called with on page load. |
+
+## Usage
+
+_Open the console to see tracking events_ & _Click the `<>` to see the code._
+
+<Playground>
+  <TracktorProvider dispatcher={trackingData => console.log(trackingData)}>
+    <PageView pageViewData={{ view: 'PageView.mdx' }} />
+     <main>
+          <h2>PageView.mdx</h2>
+
+          <section>
+                <h3>Basic Usage</h3>
+                <p>When this page loaded, we fired a tracking event with the data defined in `pageViewData`.</p>
+              </section>
+        </main>
+
+  </TracktorProvider>
+</Playground>
