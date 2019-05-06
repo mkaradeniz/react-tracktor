@@ -26,7 +26,7 @@ npm install react-tracktor
 ## Example
 
 ```typescript
-import { Tracktor, TracktorProvider } from 'react-tractor';
+import { Tracktor, TracktorProvider } from 'react-tracktor';
 
 <TracktorProvider dispatcher={trackingData => console.log(trackingData)}>
   <Tracktor
