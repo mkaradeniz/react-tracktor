@@ -2,6 +2,10 @@
 
 `<Tracktor />` is a React render prop, inspired by [react-tracking](https://github.com/nytimes/react-tracking), to gradually build tracking data down the render tree. At each level, all data is available from "above" while also passing it "down". It provides several ways to trigger tracking events.
 
+## Documentation
+
+https://react-tracktor.netlify.com/
+
 ## Caveats
 
 - This library only works with React versions that support [hooks](https://reactjs.org/hooks). That means `16.8.0` and up.

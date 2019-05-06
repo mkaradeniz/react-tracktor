@@ -103,35 +103,6 @@
   ],
   "entries": [
     {
-      "key": "docs/TracktorProvider.mdx",
-      "value": {
-        "name": "<TracktorProvider />",
-        "id": "47f8aae2c3aa6a63cde34d0a3a71f57f",
-        "filepath": "docs/TracktorProvider.mdx",
-        "link": "https://github.com/mkaradeniz/react-tracktor/edit/master/docs/TracktorProvider.mdx",
-        "slug": "docs-tracktor-provider",
-        "route": "/docs-tracktor-provider",
-        "menu": "",
-        "headings": [
-          {
-            "slug": "tracktorprovider-",
-            "depth": 1,
-            "value": "<TracktorProvider />"
-          },
-          {
-            "slug": "props",
-            "depth": 2,
-            "value": "Props"
-          },
-          {
-            "slug": "usage",
-            "depth": 2,
-            "value": "Usage"
-          }
-        ]
-      }
-    },
-    {
       "key": "docs/PageView.mdx",
       "value": {
         "name": "<PageView />",
@@ -156,35 +127,6 @@
             "slug": "usage",
             "depth": 2,
             "value": "Usage"
-          }
-        ]
-      }
-    },
-    {
-      "key": "docs/index.mdx",
-      "value": {
-        "name": "react-tracktor",
-        "route": "/",
-        "id": "73498ad0e1e62a714b08085d318f9de1",
-        "filepath": "docs/index.mdx",
-        "link": "https://github.com/mkaradeniz/react-tracktor/edit/master/docs/index.mdx",
-        "slug": "docs-index",
-        "menu": "",
-        "headings": [
-          {
-            "slug": "react-tracktor-",
-            "depth": 1,
-            "value": "react-tracktor 🚜"
-          },
-          {
-            "slug": "caveats",
-            "depth": 2,
-            "value": "Caveats"
-          },
-          {
-            "slug": "installation",
-            "depth": 2,
-            "value": "Installation"
           }
         ]
       }
@@ -244,6 +186,64 @@
             "slug": "intersectionwrapper",
             "depth": 3,
             "value": "intersectionWrapper"
+          }
+        ]
+      }
+    },
+    {
+      "key": "docs/TracktorProvider.mdx",
+      "value": {
+        "name": "<TracktorProvider />",
+        "id": "47f8aae2c3aa6a63cde34d0a3a71f57f",
+        "filepath": "docs/TracktorProvider.mdx",
+        "link": "https://github.com/mkaradeniz/react-tracktor/edit/master/docs/TracktorProvider.mdx",
+        "slug": "docs-tracktor-provider",
+        "route": "/docs-tracktor-provider",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "tracktorprovider-",
+            "depth": 1,
+            "value": "<TracktorProvider />"
+          },
+          {
+            "slug": "props",
+            "depth": 2,
+            "value": "Props"
+          },
+          {
+            "slug": "usage",
+            "depth": 2,
+            "value": "Usage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "docs/index.mdx",
+      "value": {
+        "name": "react-tracktor",
+        "route": "/",
+        "id": "73498ad0e1e62a714b08085d318f9de1",
+        "filepath": "docs/index.mdx",
+        "link": "https://github.com/mkaradeniz/react-tracktor/edit/master/docs/index.mdx",
+        "slug": "docs-index",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "react-tracktor-",
+            "depth": 1,
+            "value": "react-tracktor 🚜"
+          },
+          {
+            "slug": "caveats",
+            "depth": 2,
+            "value": "Caveats"
+          },
+          {
+            "slug": "installation",
+            "depth": 2,
+            "value": "Installation"
           }
         ]
       }
