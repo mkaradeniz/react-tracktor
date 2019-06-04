@@ -25,9 +25,17 @@ export type TrackEventOptions = {
 export type TrackingData = object;
 
 export type TracktorProps = {
+  children: ((value: TracktorRenderProp) => ReactNode) | ReactNode;
   eventData?: TrackingData;
   intersectionOptions?: IntersectionOptions;
-  render: (value: TracktorRenderProp) => ReactNode;
+  pageViewData?: TrackingData;
+  trackingData?: TrackingData;
+};
+
+export type UseTracktorProps = {
+  eventData?: TrackingData;
+  intersectionOptions?: IntersectionOptions;
+  pageViewData?: TrackingData;
   trackingData?: TrackingData;
 };
 

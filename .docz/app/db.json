@@ -3,7 +3,7 @@
     "title": "react-tracktor 🚜",
     "description": "A React render prop to gradually build tracking data down the render tree.",
     "menu": [],
-    "version": "1.0.2",
+    "version": "2.0.0-1",
     "repository": "https://github.com/mkaradeniz/react-tracktor",
     "native": false,
     "codeSandbox": false,
@@ -78,13 +78,13 @@
                 "name": "IntersectionOptions | undefined"
               }
             },
-            "render": {
+            "pageViewData": {
               "defaultValue": null,
               "description": "",
-              "name": "render",
-              "required": true,
+              "name": "pageViewData",
+              "required": false,
               "type": {
-                "name": "(value: TracktorRenderProp) => ReactNode"
+                "name": "object | undefined"
               }
             },
             "trackingData": {
@@ -210,6 +210,45 @@
             "slug": "props",
             "depth": 2,
             "value": "Props"
+          },
+          {
+            "slug": "usage",
+            "depth": 2,
+            "value": "Usage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "docs/UseTracktor.mdx",
+      "value": {
+        "name": "useTracktor()",
+        "id": "830591f9b63d4cefe7a0ea863f9d496e",
+        "filepath": "docs/UseTracktor.mdx",
+        "link": "https://github.com/mkaradeniz/react-tracktor/edit/master/docs/UseTracktor.mdx",
+        "slug": "docs-use-tracktor",
+        "route": "/docs-use-tracktor",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "usetracktor-",
+            "depth": 1,
+            "value": "useTracktor()  🎣"
+          },
+          {
+            "slug": "props",
+            "depth": 2,
+            "value": "Props"
+          },
+          {
+            "slug": "props-1",
+            "depth": 3,
+            "value": "Props"
+          },
+          {
+            "slug": "returns",
+            "depth": 3,
+            "value": "Returns"
           },
           {
             "slug": "usage",

@@ -1,0 +1,62 @@
+---
+name: useTracktor()
+---
+
+import { Playground } from 'docz';
+
+import Tracktor from '../src/Tracktor';
+import TracktorProvider from '../src/TracktorProvider';
+import useTracktor from '../src/useTracktor';
+
+# `useTracktor()` 🎣
+
+Since hooks can't provide context, `useTracktor()` is not a complete alternative to `<Tracktor />`, but provides the same functions as `<Tracktor />`'s render prop. It can also be provided with `pageViewData` to track page views. See `<Tracktor />` & `<PageView />` for more information.
+
+## Props
+
+### Props
+
+| Name                  | Type     | Default                 | Description                                                                                                                                                                                                 |
+| --------------------- | -------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `eventData`           | _object_ | `{}`                    | An object with tracking data that should be provided to the `dispatcher` when the `onClickWrapper` is fired or (when using the `intersectionRef` or `intersectionWrapper`) the component scrolls into view. |
+| `intersectionOptions` | _object_ | `{ triggerOnce: true }` | Options passed to the IntersectionObserver. <br/>See: https://github.com/thebuilder/react-intersection-observer#options                                                                                     |
+| `pageViewData`        | _object_ | `undefined`             | An object with data that the `dispatcher` should be called with on page load.                                                                                                                               |
+| `trackingData`        | _object_ | `{}`                    | An object with data that should be used when tracking events from this component and all components further down the render tree.                                                                           |
+
+### Returns
+
+| Name                  | Type                                          | Description                                                                                                                                                                      |
+| --------------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `createTrackEvent`    | `(trackEventData: object) => () => void`      | Higher-order-function to create a `trackEvent` function. Normally used in `onClick` props. Example: `<button onClick={createTrackEvent({ hello: 'world' })}>Click Me</button>}>` |
+| `intersectionRef`     | _ReactRef_                                    | If used as a ref for a DOM element, a `trackEvent` will be fired with the the provided `eventData` when the refed element scrolls into view.                                     |
+| `intersectionWrapper` | `(WrappedComponent: ReactNode) => ReactNode)` | Can be used to wrap a component to inject an invisibile `<div />` which will have the `intersectionRef` and track on intersection.                                               |
+| `onClickWrapper`      | `(trackEventData: object) => () => void`      | Can be used to wrap a component's `onClick` prop, the returning function, also fires an `trackEvent`.                                                                            |
+| `trackEvent`          | `(trackEventData: object) => void`            | Function which fires an `trackEvent` with the provided data, merged with all previously provided `trackingData`.                                                                 |
+
+## Usage
+
+```typescript
+const MyComponent = () => {
+  const { trackEvent } = useTracktor({ pageViewData: { hello: 'world' } });
+
+  return (
+    <Tracktor trackingData={{ page: 'Tracktor.mdx' }}>
+      <main>
+        <h2>Tracktor.mdx</h2>
+
+        <Tracktor trackingData={{ section: 'basic_usage' }}>
+          <section>
+            <h3>
+              <code>trackEvent</code>
+            </h3>
+
+            <button onClick={() => trackEvent({ button: 'hello' })}>Hello</button>
+
+            <button onClick={() => trackEvent({ button: 'goodbye' })}>Goodbye</button>
+          </section>
+        </Tracktor>
+      </main>
+    </Tracktor>
+  );
+};
+```
