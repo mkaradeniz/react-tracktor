@@ -29,6 +29,14 @@ export type TracktorProps = {
   intersectionOptions?: IntersectionOptions;
   render: (value: TracktorRenderProp) => ReactNode;
   trackingData?: TrackingData;
+  pageViewData?: TrackingData;
+};
+
+export type UseTracktorProps = {
+  eventData?: TrackingData;
+  intersectionOptions?: IntersectionOptions;
+  pageViewData?: TrackingData;
+  trackingData?: TrackingData;
 };
 
 export type TracktorProviderProps = {

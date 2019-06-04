@@ -1,0 +1,36 @@
+---
+name: useTracktor()
+---
+
+import { Playground } from 'docz';
+
+import Tracktor from '../src/Tracktor';
+import Test from '../src/Test';
+import TracktorProvider from '../src/TracktorProvider';
+
+<Playground>
+  <TracktorProvider dispatcher={trackingData => console.log(trackingData)}>
+    <Tracktor
+      trackingData={{ page: 'Tracktor.mdx' }}
+      render={() => (
+        <main>
+          <h2>Tracktor.mdx</h2>
+          <Tracktor trackingData={{ section: 'basic_usage' }}
+            render={({ trackEvent }) => (
+              <section>
+                <Test/>
+
+                <h3><code>trackEvent</code></h3>
+
+                <button onClick={() => trackEvent({ button: 'hello' })}>Hello</button>
+
+                <button onClick={() => trackEvent({ button: 'goodbye' })}>Goodbye</button>
+              </section>
+            )}
+          />
+        </main>
+      )}
+    />
+
+  </TracktorProvider>
+</Playground>
