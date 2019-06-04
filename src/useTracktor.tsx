@@ -16,17 +16,17 @@ const useTracktor = ({
   pageViewData,
   trackingData: ownData = {},
 }: UseTracktorProps) => {
+  // Get the built `trackingData` and the `dispatcher` from our context.
   const { data, dispatcher } = React.useContext(TracktorContext);
 
   React.useEffect(() => {
     if (!!pageViewData && !dispatcher.isDefault) {
-      // Get the `dispatcher` out of the context and call it with the provided `pageViewData`.
-
+      // Call the `dispatcher` with the provided `pageViewData`.
       dispatcher(pageViewData);
     }
-  }, [dispatcher.isDefault]);
+  }, []);
 
-  // Gets the `dispatcher` out of the context, computes the tracking data, and calls it.
+  // Computes the tracking data, and calls the `dispatcher` with it.
   const trackEvent = (trackEventData: TrackingData = {}, options: TrackEventOptions = {}) => {
     const { withoutContext } = options;
 
@@ -41,7 +41,7 @@ const useTracktor = ({
 
   // This higher-order function sets the `trackEventData` and also checks whether the library-consumer
   // defined the `eventData` which is used inside this function.
-  const createOnClickWrapperFunction = (trackEventData: TrackingData = {}) => () => {
+  const createTrackEvent = (trackEventData: TrackingData = {}) => () => {
     if (!eventData && process.env.NODE_ENV !== 'production') {
       throw new Error('If the `onClickWrapper` is used, the `eventData` prop has to be defined.');
     }
@@ -50,7 +50,7 @@ const useTracktor = ({
   };
 
   // This enables the consumer to wrap a component's `onClick` prop to also fire the tracking event.
-  const onClickWrapper = wrapFunction(createOnClickWrapperFunction(eventData));
+  const onClickWrapper = wrapFunction(createTrackEvent(eventData));
 
   // Will be called when consumer puts the `ref` on a component and it scrolls into view.
   const handleIntersection = () => {
@@ -69,7 +69,7 @@ const useTracktor = ({
     <IntersectionComponent ref={intersectionRef}>{wrappedComponent}</IntersectionComponent>
   );
 
-  return { intersectionRef, intersectionWrapper, onClickWrapper, trackEvent };
+  return { createTrackEvent, intersectionRef, intersectionWrapper, onClickWrapper, trackEvent };
 };
 
 export default useTracktor;

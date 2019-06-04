@@ -10,27 +10,25 @@ import TracktorProvider from '../src/TracktorProvider';
 
 <Playground>
   <TracktorProvider dispatcher={trackingData => console.log(trackingData)}>
-    <Tracktor
-      trackingData={{ page: 'Tracktor.mdx' }}
-      render={() => (
-        <main>
-          <h2>Tracktor.mdx</h2>
-          <Tracktor trackingData={{ section: 'basic_usage' }}
-            render={({ trackEvent }) => (
-              <section>
-                <Test/>
+    <Tracktor trackingData={{ page: 'Tracktor.mdx' }}>
+      <main>
+        <h2>Tracktor.mdx</h2>
 
-                <h3><code>trackEvent</code></h3>
+        <Tracktor trackingData={{ section: 'basic_usage' }}>
+          {({ trackEvent }) => (
+            <section>
+              <Test/>
 
-                <button onClick={() => trackEvent({ button: 'hello' })}>Hello</button>
+              <h3><code>trackEvent</code></h3>
 
-                <button onClick={() => trackEvent({ button: 'goodbye' })}>Goodbye</button>
-              </section>
-            )}
-          />
-        </main>
-      )}
-    />
+              <button onClick={() => trackEvent({ button: 'hello' })}>Hello</button>
+
+              <button onClick={() => trackEvent({ button: 'goodbye' })}>Goodbye</button>
+            </section>
+          )}
+        </Tracktor>
+      </main>
+    </Tracktor>
 
   </TracktorProvider>
 </Playground>
