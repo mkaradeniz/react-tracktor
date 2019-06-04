@@ -7,8 +7,8 @@ import wrapFunction from './utils/wrapFunction';
 import { TracktorContext } from './TracktorContext';
 
 // Types
-import { TrackingData, TrackEventOptions, UseTracktorProps } from './types';
 import { ReactNode } from 'react';
+import { TrackingData, TrackEventOptions, UseTracktorProps } from './types';
 
 const useTracktor = ({
   eventData,
