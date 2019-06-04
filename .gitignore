@@ -1,7 +1,7 @@
 !.vscode/extensions.json
 .DS_Store
 .cache/*
-.docz/cache
+.docz
 .env.development.local
 .env.production.local
 .env.test.local
