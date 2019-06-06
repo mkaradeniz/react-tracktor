@@ -5,6 +5,7 @@
   "description": "A React render prop to gradually build tracking data down the render tree.",
   "keywords": [
     "react",
+    "react-hook",
     "tracking",
     "typescript"
   ],
@@ -32,13 +33,15 @@
     "docs:build": "docz build",
     "docs:dev": "docz dev",
     "format": "prettier \"./src/**/*.{ts,tsx}\" \"./docs/**/*.{mdx}\" --config ./prettier.config.js --write",
+    "lint": "eslint --ext .ts --ext .tsx \"./src/\" --fix",
     "start": "tsdx watch",
     "test": "tsdx test --env=jsdom",
+    "test:types": "tsc -p tsconfig.json --noEmit && :",
     "test:watch": "tsdx test --env=jsdom --watch"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "pretty-quick --staged && lint-staged"
     }
   },
   "dependencies": {
@@ -46,12 +49,22 @@
     "react-intersection-observer": "8.23.0"
   },
   "devDependencies": {
+    "@mkaradeniz/eslint-config-typescript-react": "2.0.0",
+    "@mkaradeniz/prettier-config": "2.0.0",
     "@types/jest": "24.0.12",
     "@types/react": "16.8.16",
     "@types/react-dom": "16.8.4",
+    "@typescript-eslint/eslint-plugin": "1.6.0",
+    "@typescript-eslint/parser": "1.6.0",
     "docz": "1.1.0",
     "docz-theme-default": "1.1.0",
+    "eslint": "5.16.0",
+    "eslint-plugin-import": "2.17.2",
+    "eslint-plugin-jsx-a11y": "6.1.1",
+    "eslint-plugin-react": "7.11.0",
+    "eslint-plugin-react-hooks": "1.6.0",
     "husky": "2.2.0",
+    "lint-staged": "8.2.0",
     "prettier": "1.17.0",
     "pretty-quick": "1.10.0",
     "react": "16.8.6",

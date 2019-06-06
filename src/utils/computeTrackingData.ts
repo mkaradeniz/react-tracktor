@@ -7,6 +7,7 @@ const computeTrackingData = (...args: TrackingData[]) => {
   try {
     return deepmerge.all(args);
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.error(err);
 
     throw Error(
