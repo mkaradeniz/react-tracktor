@@ -1,10 +1,2 @@
-module.exports = {
-  arrowParens: 'avoid',
-  bracketSpacing: true,
-  printWidth: 140,
-  semi: true,
-  singleQuote: true,
-  tabWidth: 2,
-  trailingComma: 'all',
-  useTabs: false,
-};
+// eslint-disable-next-line import/no-extraneous-dependencies
+module.exports = require('@mkaradeniz/prettier-config');

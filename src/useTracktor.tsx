@@ -24,6 +24,7 @@ const useTracktor = ({
       // Call the `dispatcher` with the provided `pageViewData`.
       dispatcher(pageViewData);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Computes the tracking data, and calls the `dispatcher` with it.
