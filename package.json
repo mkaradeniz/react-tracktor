@@ -1,6 +1,6 @@
 {
   "name": "react-tracktor",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Max Karadeniz <max@karadeniz.io> (http://karadeniz.io/)",
   "description": "A React render prop to gradually build tracking data down the render tree.",
   "keywords": [
