@@ -11,7 +11,7 @@ const Tracktor = ({ children, eventData, intersectionOptions = { triggerOnce: tr
   // We want to copy the context data, so we can use it from outside the `TracktorContext.Consumer` render prop.
   const [, setCopiedContext] = React.useState<ContextType>(initialState);
 
-  const { intersectionRef, intersectionWrapper, onClickWrapper, trackEvent } = useTracktor({
+  const { createTrackEvent, intersectionRef, intersectionWrapper, onClickWrapper, trackEvent } = useTracktor({
     eventData,
     intersectionOptions,
     trackingData: ownData,
@@ -30,7 +30,7 @@ const Tracktor = ({ children, eventData, intersectionOptions = { triggerOnce: tr
           // `children` is a function, call it with the provided functions from `useTracktor`.
           return (
             <TracktorContext.Provider value={nextContextValue}>
-              {children({ intersectionRef, intersectionWrapper, onClickWrapper, trackEvent })}
+              {children({ createTrackEvent, intersectionRef, intersectionWrapper, onClickWrapper, trackEvent })}
             </TracktorContext.Provider>
           );
         }

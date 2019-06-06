@@ -25,12 +25,13 @@ It needs to be wrapped in **one** top-level `<TracktorProvider />` per render-tr
 
 ### `render` Props
 
-| Name                  | Type                                          | Description                                                                                                                                  |
-| --------------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `intersectionRef`     | _ReactRef_                                    | If used as a ref for a DOM element, a `trackEvent` will be fired with the the provided `eventData` when the refed element scrolls into view. |
-| `intersectionWrapper` | `(WrappedComponent: ReactNode) => ReactNode)` | Can be used to wrap a component to inject an invisibile `<div />` which will have the `intersectionRef` and track on intersection.           |
-| `onClickWrapper`      | `(trackEventData: object) => () => void`      | Can be used to wrap a component's `onClick` prop, the returning function, also fires an `trackEvent`.                                        |
-| `trackEvent`          | `(trackEventData: object) => void`            | Function which fires an `trackEvent` with the provided data, merged with all previously provided `trackingData`.                             |
+| Name                  | Type                                          | Description                                                                                                                                                                      |
+| --------------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `createTrackEvent`    | `(trackEventData: object) => () => void`      | Higher-order-function to create a `trackEvent` function. Normally used in `onClick` props. Example: `<button onClick={createTrackEvent({ hello: 'world' })}>Click Me</button>}>` |
+| `intersectionRef`     | _ReactRef_                                    | If used as a ref for a DOM element, a `trackEvent` will be fired with the the provided `eventData` when the refed element scrolls into view.                                     |
+| `intersectionWrapper` | `(WrappedComponent: ReactNode) => ReactNode)` | Can be used to wrap a component to inject an invisibile `<div />` which will have the `intersectionRef` and track on intersection.                                               |
+| `onClickWrapper`      | `(trackEventData: object) => () => void`      | Can be used to wrap a component's `onClick` prop, the returning function, also fires an `trackEvent`.                                                                            |
+| `trackEvent`          | `(trackEventData: object) => void`            | Function which fires an `trackEvent` with the provided data, merged with all previously provided `trackingData`.                                                                 |
 
 ## Usage
 

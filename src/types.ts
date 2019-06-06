@@ -45,6 +45,7 @@ export type TracktorProviderProps = {
 };
 
 export type TracktorRenderProp = {
+  createTrackEvent: (trackEventData?: object) => () => void;
   intersectionRef: ((node?: Element | null | undefined) => void) | (RefObject<any>);
   intersectionWrapper: (wrappedComponent: ReactNode) => ReactNode;
   onClickWrapper: (wrappedFunction: (...args: any[]) => any) => (...args: any[]) => any;
